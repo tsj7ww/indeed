@@ -1,0 +1,33 @@
+{
+  "job": {
+    "name": "Indeed",
+    "id": "indeed",
+    "type": "etl",
+    "schedule": "cron(59 8 ? * SUN *)",
+    "platform": "lambda",
+    "intent": "Extract job posting data from Indeed.com.",
+    "artifacts": "s3://tsj7ww-artifacts-useast1/etl/indeed/"
+  },
+  "owner": {
+      "name": "Trevor Jordan",
+      "email": "tdawg@notreal.com",
+      "id": "tsj7ww",
+  },
+  "stakeholders": [
+      {"name": "Trevor Jordan","email":"tdawg@notreal.com"}
+  ],
+  "assets": {
+      "input": ["Indeed.com"],
+      "output": ["JSON","AWS DynamoDB","AWS SES"],
+      "aws": ["lambda","dynamodb","ses","sns","events"],
+      "dependencies": ["boto3","requests","bs4"]
+  },
+  "changeLog": {
+      "2020-09-01": {
+          "requestor": "me",
+          "modifier": "me",
+          "reviewer": "me",
+          "purpose": "init"
+      }
+  }
+}
